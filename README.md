@@ -1,33 +1,110 @@
 <h1 align="center">
-🤖 MedRAX: Medical Reasoning Agent for Chest X-ray
+🚀 MedRAX Plus: Advanced Multi-Modal Medical Reasoning Agent
 </h1>
-<p align="center"> <a href="https://arxiv.org/abs/2502.02673" target="_blank"><img src="https://img.shields.io/badge/arXiv-ICML 2025-FF6B6B?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"></a> <a href="https://github.com/bowang-lab/MedRAX"><img src="https://img.shields.io/badge/GitHub-Code-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://huggingface.co/datasets/wanglab/chest-agent-bench"><img src="https://img.shields.io/badge/HuggingFace-Dataset-FFBF00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace Dataset"></a> </p>
+<p align="center">
+<em>Extended fork of the original MedRAX with EKG support, modern architecture, and interactive UI</em>
+</p>
+<p align="center"> <a href="https://arxiv.org/abs/2502.02673" target="_blank"><img src="https://img.shields.io/badge/arXiv-ICML 2025-FF6B6B?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"></a> <a href="https://github.com/u9401066/MedRAX"><img src="https://img.shields.io/badge/GitHub-MedRAX Plus-4A90E2?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a> <a href="https://github.com/bowang-lab/MedRAX"><img src="https://img.shields.io/badge/Original-bowang--lab-lightgrey?style=for-the-badge&logo=github&logoColor=white" alt="Original"></a> <a href="https://huggingface.co/datasets/wanglab/chest-agent-bench"><img src="https://img.shields.io/badge/HuggingFace-Dataset-FFBF00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace Dataset"></a> </p>
 
 ![](assets/demo_fast.gif?autoplay=1)
 
 <br>
 
-## Abstract
+## 🌟 What is MedRAX Plus?
+
+**MedRAX Plus** is an advanced extension of the original MedRAX that adds:
+
+- **EKG/ECG Analysis** - Full cardiac signal support
+- **Modern LangGraph Architecture** - State-based agent orchestration
+- **Interactive Region-Aware UI** - Real-time marking and spatial context
+- **Multi-Interface Deployment** - Gradio + MCP Server + VS Code Copilot
+- **Constitutional AI Framework** - DDD architecture + 13 Claude Skills
+- **Multi-Modal Joint Reasoning** - Advanced cardiopulmonary analysis
+
+### Quick Comparison
+
+| Feature | Original MedRAX | MedRAX Plus |
+|---------|-----------------|-------------|
+| **CXR Analysis** | ✅ | ✅ Enhanced |
+| **EKG/ECG Analysis** | ❌ | ✅ NEW |
+| **Agent Type** | Linear LangChain | **LangGraph State-Based** |
+| **UI Interaction** | Static upload | **Dynamic region marking** |
+| **Deployment** | Gradio only | **Gradio + MCP + Copilot** |
+| **Code Architecture** | Standard | **Constitutional (DDD)** |
+| **Development Tools** | None | **13 Claude Skills** |
+| **Multi-Modal Fusion** | Basic | **Advanced reasoning** |
+
+<br>
+
+## 🌟 MedRAX Plus Features
+
+**Multi-Modal Analysis**
+- 🖼️ CXR (2D images) - Comprehensive radiological interpretation
+- 📡 EKG/ECG (time-series signals) - Cardiac signal processing and classification
+- 🧠 Joint Reasoning - Integrated cardiopulmonary decision support
+
+**Modern Architecture**
+- 🏗️ **LangGraph**: State-based agent with conditional routing
+- 🔄 **Tool Use Protocol**: Modern Anthropic/OpenAI-style tool integration
+- 📊 **State Management**: Rich clinical context and reasoning traces
+- 🎯 **Multi-Path Orchestration**: CXR, EKG, or combined analysis routes
+
+**Interactive User Experience**
+- 🖱️ **Region Marking**: Draw boxes/circles on images to focus analysis
+- 🎤 **Multi-Modal Input**: Text, voice, and visual annotations
+- 📍 **Spatial Awareness**: Agent understands marked regions and attention
+- ⚡ **Real-Time Feedback**: Streaming responses with confidence scores
+
+**Deployment Flexibility**
+- 🌐 **Gradio Web UI**: Production-ready interface with interactive features
+- 🤖 **MCP Server**: Claude and other LLM integration via Model Context Protocol
+- 💻 **VS Code Copilot**: IDE-native medical image analysis (@medrax commands)
+- 🏥 **Local or Cloud**: Supports both deployment models
+
+**AI-Assisted Development**
+- 📜 **Constitutional Framework**: Hierarchical rules (CONSTITUTION > Bylaws > Skills)
+- 🧠 **Memory Bank**: Cross-session project knowledge management
+- 🤖 **13 Claude Skills**: Automated code review, testing, documentation
+- 🏛️ **DDD Architecture**: Clean, maintainable medical domain logic
+
+<br>
+
+## Abstract (Original CXR Paper)
 Chest X-rays (CXRs) play an integral role in driving critical decisions in disease management and patient care. While recent innovations have led to specialized models for various CXR interpretation tasks, these solutions often operate in isolation, limiting their practical utility in clinical practice. We present MedRAX, the first versatile AI agent that seamlessly integrates state-of-the-art CXR analysis tools and multimodal large language models into a unified framework. MedRAX dynamically leverages these models to address complex medical queries without requiring additional training. To rigorously evaluate its capabilities, we introduce ChestAgentBench, a comprehensive benchmark containing 2,500 complex medical queries across 7 diverse categories. Our experiments demonstrate that MedRAX achieves state-of-the-art performance compared to both open-source and proprietary models, representing a significant step toward the practical deployment of automated CXR interpretation systems.
 <br><br>
 
 
-## MedRAX
-MedRAX is built on a robust technical foundation:
-- **Core Architecture**: Built on LangChain and LangGraph frameworks
-- **Language Model**: Uses GPT-4o with vision capabilities as the backbone LLM
-- **Deployment**: Supports both local and cloud-based deployments
-- **Interface**: Production-ready interface built with Gradio
-- **Modular Design**: Tool-agnostic architecture allowing easy integration of new capabilities
+## MedRAX Plus Architecture
+Built on robust modern foundations:
+- **Core Framework**: LangChain + LangGraph (stateful agent orchestration)
+- **Language Model**: GPT-4o with vision + multi-modal reasoning
+- **Multi-Modal Support**: CXR (images) + EKG (time-series signals)
+- **Deployment Options**: Gradio web, MCP server, VS Code Copilot extension
+- **UI Framework**: Interactive Gradio with Canvas annotation
+- **Design Pattern**: DDD (Domain-Driven Design) architecture
+- **Development Workflow**: Constitutional framework + Claude Skills
 
-### Integrated Tools
-- **Visual QA**: Utilizes CheXagent and LLaVA-Med for complex visual understanding and medical reasoning
-- **Segmentation**: Employs MedSAM and PSPNet model trained on ChestX-Det for precise anatomical structure identification
-- **Grounding**: Uses Maira-2 for localizing specific findings in medical images
-- **Report Generation**: Implements SwinV2 Transformer trained on CheXpert Plus for detailed medical reporting
-- **Disease Classification**: Leverages DenseNet-121 from TorchXRayVision for detecting 18 pathology classes
-- **X-ray Generation**: Utilizes RoentGen for synthetic CXR generation
-- **Utilities**: Includes DICOM processing, visualization tools, and custom plotting capabilities
+### CXR Tool Suite
+- **Visual QA**: CheXagent, LLaVA-Med
+- **Segmentation**: MedSAM, PSPNet
+
+- **Grounding**: Maira-2 (region localization)
+- **Report Generation**: SwinV2 + CheXpert Plus
+- **Classification**: DenseNet-121 + TorchXRayVision (18 pathologies)
+- **Synthesis**: RoentGen (synthetic generation)
+- **Utilities**: DICOM processing, visualization tools
+
+### EKG/ECG Tools (v0.2.0+)
+- **Signal Processing**: R-peak detection, HRV analysis, ECG-SQI
+- **Classification**: ResNet-ECG, Transformer-based models
+- **Arrhythmia Detection**: ArrhythmiaNet, pattern matching
+- **Report Generation**: ECG-BERT (clinical reports)
+- **Risk Assessment**: Integrated scoring systems
+
+### Multi-Modal Reasoning
+- **Joint Analysis**: CXR + EKG integration for cardiopulmonary conditions
+- **Clinical Context**: Synchronized interpretation of imaging and signals
+- **Recommendation Engine**: Unified decision support
 <br><br>
 
 
