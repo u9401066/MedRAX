@@ -2,23 +2,24 @@
 
 ## Done
 
-- Git 設定與 fork merge (u9401066)
-- Template 導入 (Constitutional Framework)
-- MedRAX Plus 重新定位
-- ARCHITECTURE_MODERNIZATION.md
-- ROADMAP.md (v0.1.x 版號系列)
-- MCP_SERVER_DESIGN.md 圖像回傳策略
-- MedRAX2 新功能分析與參考整合
-- MCP Tools 映射設計 (9 個工具)
-- 資料流邏輯對照分析 (原 MedRAX vs MCP)
+- Git setup and fork merge (u9401066)
+- Template import (Constitutional Framework, 43 files)
+- MedRAX Plus rebranding
+- ARCHITECTURE_MODERNIZATION.md, ROADMAP.md creation
+- MedRAX2 analysis and reference integration
+- Version scheme update to v0.1.x series
+- MCP Tools mapping (9 tools analyzed)
+- Data flow logic comparison (original vs MCP)
+- MCP_TOOLS_MAPPING.md with flow diagrams
+- Git commit & push (ce149d2)
+- ROADMAP Phase 6-8 added (Agent Abstraction, Web Frontend, FHIR)
 
 ## Doing
 
-- v0.1.4 MCP Server 架構設計
+- Commit roadmap updates to Git
 
 ## Next
 
-- v0.1.1 EKG 支援實作
-- v0.1.2 LangGraph 遷移
-- v0.1.4-alpha FastMCP Server 實作
-- MCP Prompt 醫學推理指引補充
+- v0.1.1 EKG Support implementation
+- v0.1.4 FastMCP implementation
+- v0.1.7 Agent Abstraction Layer design
