@@ -222,11 +222,20 @@ class TestServiceContainer:
         assert container.image_storage.get(image_id) is not None
 
 
+# Check if MCP is installed
+def _check_mcp_installed():
+    try:
+        import mcp
+        return True
+    except ImportError:
+        return False
+
+
 class TestMCPServerCreation:
     """Test MCP server creation."""
     
     @pytest.mark.skipif(
-        True,  # Skip if mcp not installed
+        not _check_mcp_installed(),
         reason="MCP package not installed"
     )
     def test_create_mcp_app(self):

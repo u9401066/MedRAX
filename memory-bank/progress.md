@@ -2,26 +2,20 @@
 
 ## Done
 
-- Git setup and fork merge (u9401066)
-- Template import (Constitutional Framework)
-- MedRAX Plus rebranding
-- ARCHITECTURE_MODERNIZATION.md, ROADMAP.md creation
-- MCP Tools mapping (9 tools analyzed)
-- Data flow logic comparison (original vs MCP)
-- ROADMAP Phase 6-8 added (Agent Abstraction, Web Frontend, FHIR)
-- MCP Server v0.1.4-alpha implementation - DDD architecture with 4 layers
-- Domain Layer: entities, protocols, exceptions
-- Infrastructure Layer: ClassifierWrapper, VQAWrapper, SegmentationWrapper, DicomWrapper
-- Application Layer: Services with dependency injection
-- Presentation Layer: FastMCP tools, prompts, resources
-- Unit tests and README documentation
+- MCP Server DDD 架構實作 (~2974 行)
+- pyproject.toml 套件整理
+- Python 3.12 環境設定
+- medrax/mcp/__init__.py lazy import 修復
+- 14 個單元測試全數通過
+- VS Code MCP 整合設定 (.vscode/mcp.json, .vscode/settings.json)
+- MCP Server 完整功能測試
 
 ## Doing
 
-
+- 準備 commit 前檢查
 
 ## Next
 
-- Install mcp package and test server
-- Integrate with VS Code Copilot
-- Add more tools (grounding, report generation)
+- 修復 CheXagent HuggingFace 快取權限問題
+- 優化分割模型效能
+- 完善文件

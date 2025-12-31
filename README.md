@@ -200,6 +200,46 @@ uv run pytest
 uv run black .
 uv run isort .
 ```
+
+### MCP Server (VS Code Copilot Integration)
+
+MedRAX supports the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) for seamless integration with VS Code Copilot and other LLM agents.
+
+```bash
+# Run MCP Server (stdio transport for VS Code)
+uv run python -m medrax.mcp.server --device cuda --transport stdio
+
+# Or with SSE transport for web clients
+uv run python -m medrax.mcp.server --device cuda --transport sse --port 8000
+```
+
+#### VS Code Configuration
+Add to `.vscode/mcp.json`:
+```json
+{
+  "servers": {
+    "medrax": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["-m", "medrax.mcp.server", "--device", "cuda", "--transport", "stdio"],
+      "env": {"PYTHONPATH": "${workspaceFolder}"}
+    }
+  }
+}
+```
+
+#### Available MCP Tools
+| Tool | Description |
+|------|-------------|
+| `register_image` | Register a local image for analysis |
+| `process_dicom` | Convert DICOM to viewable format |
+| `get_dicom_metadata` | Extract DICOM metadata |
+| `classify_cxr` | Classify 18 pathologies |
+| `segment_anatomy` | Segment 14 anatomical structures |
+| `ask_cxr_expert` | Visual QA with CheXagent |
+| `get_supported_pathologies` | List supported pathologies |
+| `get_supported_organs` | List supported organs |
+| `list_registered_images` | List registered images |
 <br><br><br>
 
 

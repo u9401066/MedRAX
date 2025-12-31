@@ -1,0 +1,19 @@
+{
+  "servers": {
+    "medrax": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "medrax.mcp.server",
+        "--device",
+        "cuda",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  }
+}

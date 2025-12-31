@@ -6,3 +6,8 @@
 | 2025-12-31 | 採用 Agent Abstraction Layer 設計，支援 Copilot/Cline/Claude/Custom 等多種 Agent 無縫切換 | 降低對單一 Agent 的依賴風險，提高架構靈活性，為未來獨立部署和 FHIR 整合鋪路 |
 | 2025-12-31 | 規劃獨立 Web 前端 (v0.1.8) 與 FHIR 整合 (v0.1.9) 作為長期目標 | 最終目標是不依賴 VS Code 的獨立醫學影像分析平台，透過 FHIR 實現與 EHR 系統的互通 |
 | 2025-12-31 | MCP Server 採用 DDD 四層架構實作，使用 FastMCP SDK | DDD 架構確保關注點分離，Domain 層定義核心實體和協議，Infrastructure 層包裝 DL 模型，Application 層協調服務，Presentation 層暴露 MCP 工具 |
+| 2025-12-31 | MCP Server 採用 DDD 四層架構實作 | 1. Domain Layer 定義核心實體和協議，確保業務邏輯獨立
+2. Infrastructure Layer 封裝外部 ML 模型依賴，方便替換
+3. Application Layer 提供服務容器和依賴注入，支援 lazy loading
+4. Presentation Layer 透過 FastMCP 暴露工具給 LLM Agent
+此架構遵循 CONSTITUTION.md 和 .github/bylaws/ddd-architecture.md 規範 |
