@@ -3,23 +3,25 @@
 ## Done
 
 - Git setup and fork merge (u9401066)
-- Template import (Constitutional Framework, 43 files)
+- Template import (Constitutional Framework)
 - MedRAX Plus rebranding
 - ARCHITECTURE_MODERNIZATION.md, ROADMAP.md creation
-- MedRAX2 analysis and reference integration
-- Version scheme update to v0.1.x series
 - MCP Tools mapping (9 tools analyzed)
 - Data flow logic comparison (original vs MCP)
-- MCP_TOOLS_MAPPING.md with flow diagrams
-- Git commit & push (ce149d2)
 - ROADMAP Phase 6-8 added (Agent Abstraction, Web Frontend, FHIR)
+- MCP Server v0.1.4-alpha implementation - DDD architecture with 4 layers
+- Domain Layer: entities, protocols, exceptions
+- Infrastructure Layer: ClassifierWrapper, VQAWrapper, SegmentationWrapper, DicomWrapper
+- Application Layer: Services with dependency injection
+- Presentation Layer: FastMCP tools, prompts, resources
+- Unit tests and README documentation
 
 ## Doing
 
-- Commit roadmap updates to Git
+
 
 ## Next
 
-- v0.1.1 EKG Support implementation
-- v0.1.4 FastMCP implementation
-- v0.1.7 Agent Abstraction Layer design
+- Install mcp package and test server
+- Integrate with VS Code Copilot
+- Add more tools (grounding, report generation)

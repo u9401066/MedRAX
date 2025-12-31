@@ -79,8 +79,13 @@ test = [
     "pytest-asyncio>=0.21.0",
 ]
 
+mcp = [
+    "mcp>=1.0.0",
+]
+
 [project.scripts]
 medrax = "main:main"
+medrax-mcp = "medrax.mcp.server:main"
 
 [dependency-groups]
 dev = [
