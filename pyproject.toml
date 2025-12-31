@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=45", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "medrax"
@@ -10,7 +10,7 @@ authors = [
     {name = "Adibvafa Fallahpour", email = "adibvafa.fallahpour@mail.utoronto.ca"},
 ]
 license = {file = "LICENSE"}
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
     "requests>=2.25.0",
     "numpy<2",
@@ -24,7 +24,7 @@ dependencies = [
     "pydantic>=1.8.0",
     "Pillow>=8.0.0",
     "torchxrayvision>=0.0.37",
-    "transformers @ git+https://github.com/huggingface/transformers.git@88d960937c81a32bfb63356a2e8ecf7999619681",
+    "transformers>=4.44.0",
     "tokenizers>=0.10.0",
     "sentencepiece>=0.1.95",
     "shortuuid>=1.0.0",
@@ -35,12 +35,11 @@ dependencies = [
     "protobuf>=3.15.0",
     "scikit-learn>=0.24.0",
     "gradio>=3.0.0",
-    "gradio_client>=0.2.0",
+    "gradio-client>=0.2.0",
     "httpx>=0.23.0",
     "uvicorn>=0.15.0",
     "fastapi>=0.68.0",
     "einops>=0.3.0",
-    "einops-exts>=0.0.4",
     "timm>=0.5.0",
     "tiktoken>=0.3.0",
     "openai>=0.27.0",
@@ -58,33 +57,65 @@ dependencies = [
     "jupyter>=1.0.0",
     "albumentations>=1.0.0",
     "pyarrow>=10.0.0",
+    "tenacity>=8.0.0",
+    "datasets>=2.0.0",
+    "transformers[agents]>=4.44.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "black",
-    "isort",
-    "flake8",
-    "mypy",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+    "pre-commit>=3.0.0",
+    "ruff>=0.1.0",
 ]
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["medrax*"]
-exclude = ["med_env*", "demo*"]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[project.scripts]
+medrax = "main:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "flake8>=6.0.0",
+    "pre-commit>=3.0.0",
+    "ruff>=0.1.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+select = ["E", "F", "W", "I", "N", "UP", "YTT", "ANN", "S", "BLE", "FBT", "B", "A", "COM", "C4", "DTZ", "T10", "EM", "EXE", "FA", "ISC", "ICN", "G", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET", "SLF", "SIM", "TID", "TCH", "ARG", "THR", "PTH", "ERA", "PGH", "PL", "TRY", "FLY", "NPY", "PERF", "RUF"]
+ignore = ["ANN101", "ANN102", "S101", "S104", "S105", "S106"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/*" = ["S101", "S105", "S106"]
 
 [tool.black]
 line-length = 100
-target-version = ['py310']
+target-version = ['py312']
 
 [tool.isort]
 profile = "black"
 line_length = 100
 
-[tool.mypy]
-ignore_missing_imports = true
-strict_optional = true
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-ra -q --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]

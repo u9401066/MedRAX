@@ -68,8 +68,9 @@ python quickstart.py \
 
 ## Installation
 ### Prerequisites
-- Python 3.8+
+- Python 3.10+
 - CUDA/GPU for best performance
+- [uv](https://docs.astral.sh/uv/) - 現代Python包管理器
 
 ### Installation Steps
 ```bash
@@ -77,22 +78,51 @@ python quickstart.py \
 git clone https://github.com/bowang-lab/MedRAX.git
 cd MedRAX
 
-# Install package
-pip install -e .
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Setup environment and install dependencies
+uv sync
+
+# Activate the virtual environment
+source .venv/bin/activate
+
+# Or use uv run to execute commands directly
+uv run python main.py
 ```
 
-### Getting Started
+### Quick Start with uv
 ```bash
-# Start the Gradio interface
-python main.py
+# Run the Gradio interface directly with uv
+uv run python main.py
+
+# Or install as a package and run
+uv run --with dev --extras test medrax
+
+# Run benchmarks
+uv run python quickstart.py \
+    --model chatgpt-4o-latest \
+    --temperature 0.2 \
+    --max-cases 2 \
+    --log-prefix chatgpt-4o-latest \
+    --use-urls
 ```
-or if you run into permission issues
+
+### Development Setup
 ```bash
-sudo -E env "PATH=$PATH" python main.py
+# Install with development dependencies
+uv sync --extra dev
+
+# Install pre-commit hooks
+uv run pre-commit install
+
+# Run tests
+uv run pytest
+
+# Format code
+uv run black .
+uv run isort .
 ```
-You need to setup the `model_dir` inside `main.py` to the directory where you want to download or already have the weights of above tools from Hugging Face.
-Comment out the tools that you do not have access to.
-Make sure to setup your OpenAI API key in `.env` file!
 <br><br><br>
 
 
